@@ -1,7 +1,7 @@
 'use client'
 
 import Link from 'next/link'
-import { useState } from 'react'
+import MobileMenu from './MobileMenu'
 
 const links = [
   { href: '/', label: 'Home' },
@@ -10,8 +10,6 @@ const links = [
 ]
 
 export default function Header() {
-  const [open, setOpen] = useState(false)
-
   return (
     <header className="header">
       <div className="container header-inner">
@@ -23,23 +21,8 @@ export default function Header() {
           ))}
         </nav>
 
-        <button
-          className="menu-toggle"
-          aria-label="Toggle menu"
-          aria-expanded={open}
-          onClick={() => setOpen(!open)}
-        >
-          {open ? '✕' : '☰'}
-        </button>
+        <MobileMenu links={links} />
       </div>
-
-      {open && (
-        <nav className="nav-mobile">
-          {links.map((l) => (
-            <Link key={l.href} href={l.href}>{l.label}</Link>
-          ))}
-        </nav>
-      )}
     </header>
   )
 }
