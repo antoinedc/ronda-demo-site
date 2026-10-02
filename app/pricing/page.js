@@ -10,7 +10,7 @@ export default function Pricing() {
   return (
     <section className="pricing">
       <div className="container">
-        <h1>Simple pricing</h1>
+        <h1>Plans for every team</h1>
         <p className="lead">Pick a plan. Change or cancel any time.</p>
         <div className="grid">
           {plans.map((p) => (
