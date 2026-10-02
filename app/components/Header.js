@@ -2,6 +2,7 @@
 
 import Link from 'next/link'
 import { useState } from 'react'
+import MobileMenu from './MobileMenu'
 
 const links = [
   { href: '/', label: 'Home' },
@@ -34,11 +35,7 @@ export default function Header() {
       </div>
 
       {open && (
-        <nav className="nav-mobile">
-          {links.map((l) => (
-            <Link key={l.href} href={l.href}>{l.label}</Link>
-          ))}
-        </nav>
+        <MobileMenu links={links} onNavigate={() => setOpen(false)} />
       )}
     </header>
   )
