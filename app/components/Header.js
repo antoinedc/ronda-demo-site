@@ -2,6 +2,7 @@
 
 import Link from 'next/link'
 import { useState } from 'react'
+import MobileMenu from './MobileMenu'
 
 const links = [
   { href: '/', label: 'Home' },
@@ -23,23 +24,13 @@ export default function Header() {
           ))}
         </nav>
 
-        <button
-          className="menu-toggle"
-          aria-label="Toggle menu"
-          aria-expanded={open}
-          onClick={() => setOpen(!open)}
-        >
-          {open ? '✕' : '☰'}
-        </button>
+        <MobileMenu
+          open={open}
+          onToggle={() => setOpen(!open)}
+          onNavigate={() => setOpen(false)}
+          links={links}
+        />
       </div>
-
-      {open && (
-        <nav className="nav-mobile">
-          {links.map((l) => (
-            <Link key={l.href} href={l.href}>{l.label}</Link>
-          ))}
-        </nav>
-      )}
     </header>
   )
 }
