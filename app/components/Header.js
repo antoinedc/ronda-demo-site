@@ -1,0 +1,45 @@
+'use client'
+
+import Link from 'next/link'
+import { useState } from 'react'
+
+const links = [
+  { href: '/', label: 'Home' },
+  { href: '/#features', label: 'Features' },
+  { href: '/pricing', label: 'Pricing' },
+]
+
+export default function Header() {
+  const [open, setOpen] = useState(false)
+
+  return (
+    <header className="header">
+      <div className="container header-inner">
+        <Link href="/" className="logo">Brightside</Link>
+
+        <nav className="nav-desktop">
+          {links.map((l) => (
+            <Link key={l.href} href={l.href}>{l.label}</Link>
+          ))}
+        </nav>
+
+        <button
+          className="menu-toggle"
+          aria-label="Toggle menu"
+          aria-expanded={open}
+          onClick={() => setOpen(!open)}
+        >
+          {open ? '✕' : '☰'}
+        </button>
+      </div>
+
+      {open && (
+        <nav className="nav-mobile">
+          {links.map((l) => (
+            <Link key={l.href} href={l.href}>{l.label}</Link>
+          ))}
+        </nav>
+      )}
+    </header>
+  )
+}
