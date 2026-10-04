@@ -12,7 +12,7 @@ export default function Home() {
       <section className="hero">
         <div className="container">
           <p className="eyebrow">Design and development studio</p>
-          <h1>We build websites that small teams love</h1>
+          <h1>We build websites your team will love</h1>
           <p className="lead">
             Brightside helps founders launch and improve their marketing site without hiring a full team.
           </p>
