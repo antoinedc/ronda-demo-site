@@ -18,7 +18,6 @@ export default function Home() {
           </p>
           <div className="actions">
             <Link href="/pricing" className="button primary">See pricing</Link>
-            <a href="#features" className="button">How we work</a>
           </div>
         </div>
       </section>
