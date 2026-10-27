@@ -1,4 +1,5 @@
 import Link from 'next/link'
+import DesignVariations from './components/DesignVariations'
 
 const features = [
   { title: 'Design sprints', body: 'Go from rough idea to clickable prototype in one week.' },
@@ -6,7 +7,10 @@ const features = [
   { title: 'Ongoing support', body: 'Small changes shipped every week, no tickets lost.' },
 ]
 
-export default function Home() {
+export default function Home({ searchParams }) {
+  const variant = searchParams?.__ronda_variant
+  if (['A', 'B', 'C'].includes(variant)) return <DesignVariations variant={variant} />
+
   return (
     <>
       <section className="hero">
