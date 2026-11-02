@@ -9,6 +9,7 @@ const features = [
 
 export default function Home({ searchParams }) {
   const variant = searchParams?.__ronda_variant
+  const ctaVariant = ['cta-solid', 'cta-outline', 'cta-gradient'].includes(variant) ? variant : null
   if (['A', 'B', 'C'].includes(variant)) return <DesignVariations variant={variant} />
 
   return (
@@ -21,7 +22,7 @@ export default function Home({ searchParams }) {
             Brightside helps founders launch and improve their marketing site without hiring a full team.
           </p>
           <div className="actions">
-            <Link href="/pricing" className="button primary">See pricing</Link>
+            <Link href="/pricing" className={`button primary${ctaVariant ? ` hero-cta ${ctaVariant}` : ''}`}>See pricing{ctaVariant && <span aria-hidden="true">↗</span>}</Link>
             <a href="#features" className="button">How we work</a>
           </div>
         </div>
