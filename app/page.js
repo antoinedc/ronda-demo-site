@@ -14,7 +14,7 @@ export default function Home() {
           <p className="eyebrow">Design and development studio</p>
           <h1>Phase 0 test one</h1>
           <p className="lead">
-            Phase 0 test two
+            Brightside helps founders launch and improve their marketing site without hiring a full team.
           </p>
           <div className="actions">
             <Link href="/pricing" className="button primary">See pricing</Link>
